@@ -28,4 +28,9 @@ public class PersonController {
         return personService.list();
     }
 
+    @GetMapping("/{personId}")
+    public PersonDTO findById(@PathVariable Long personId) {
+        return personService.find(personId);
+    }
+
 }
