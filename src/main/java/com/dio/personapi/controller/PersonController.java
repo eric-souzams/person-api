@@ -33,6 +33,11 @@ public class PersonController {
         return personService.find(personId);
     }
 
+    @PutMapping("/{personId}")
+    public MessageResponseDTO updateById(@PathVariable Long personId, @Valid @RequestBody PersonDTO personDTO) {
+        return personService.update(personId, personDTO);
+    }
+
     @DeleteMapping("/{personId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable long personId) {
