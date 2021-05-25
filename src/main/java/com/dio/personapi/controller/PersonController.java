@@ -1,28 +1,25 @@
 package com.dio.personapi.controller;
 
-import com.dio.personapi.dto.MessageResponseDTO;
-import com.dio.personapi.entities.Person;
-import com.dio.personapi.repository.PersonRepository;
+import com.dio.personapi.dto.request.PersonDTO;
+import com.dio.personapi.dto.response.MessageResponseDTO;
+import com.dio.personapi.service.PersonService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @AllArgsConstructor
 @RestController
 @RequestMapping("/person")
 public class PersonController {
 
-    private PersonRepository personRepository;
+    private PersonService personService;
 
     @PostMapping
-    public MessageResponseDTO newPerson(@RequestBody Person person) {
-        Person savedPerson = personRepository.save(person);
-        return MessageResponseDTO
-                .builder()
-                .message("Created person with ID: " + savedPerson.getId())
-                .build();
+    @ResponseStatus(HttpStatus.CREATED)
+    public MessageResponseDTO newPerson(@Valid @RequestBody PersonDTO personDTO) {
+        return personService.create(personDTO);
     }
 
 }
