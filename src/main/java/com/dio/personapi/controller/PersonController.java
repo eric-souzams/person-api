@@ -33,4 +33,10 @@ public class PersonController {
         return personService.find(personId);
     }
 
+    @DeleteMapping("/{personId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable long personId) {
+        personService.delete(personId);
+    }
+
 }

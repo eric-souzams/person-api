@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -41,10 +40,21 @@ public class PersonService {
     }
 
     public PersonDTO find(Long personId) {
-        Person foundPerson = personRepository.findById(personId)
-                .orElseThrow(() -> new PersonNotFoundException(personId));
+        Person foundPerson = verifyIfExists(personId);
 
         return personMapper.toDTO(foundPerson);
+    }
+
+    @Transactional
+    public void delete(Long personId) {
+        verifyIfExists(personId);
+
+        personRepository.deleteById(personId);
+    }
+
+    private Person verifyIfExists(Long personId) {
+        return personRepository.findById(personId)
+                .orElseThrow(() -> new PersonNotFoundException(personId));
     }
 
 }
