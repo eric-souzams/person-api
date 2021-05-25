@@ -3,8 +3,8 @@ package com.dio.personapi.service;
 import com.dio.personapi.dto.request.PersonDTO;
 import com.dio.personapi.dto.response.MessageResponseDTO;
 import com.dio.personapi.entities.Person;
+import com.dio.personapi.mapper.PersonMapper;
 import com.dio.personapi.repository.PersonRepository;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -23,6 +23,9 @@ public class PersonServiceTest {
     @Mock
     private PersonRepository personRepository;
 
+    @Mock
+    private PersonMapper personMapper;
+
     @InjectMocks
     private PersonService personService;
 
@@ -31,6 +34,7 @@ public class PersonServiceTest {
         PersonDTO personDTO = createFakeDTO();
         Person expectedSavedPerson = createFakeEntity();
 
+        //when(personMapper.toModel(personDTO)).thenReturn(expectedSavedPerson);
         when(personRepository.save(any(Person.class))).thenReturn(expectedSavedPerson);
 
         MessageResponseDTO expectedSuccessMessage = createExpectedMessageResponse(expectedSavedPerson.getId());
