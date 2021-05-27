@@ -4,13 +4,14 @@ import com.dio.personapi.dto.request.PersonDTO;
 import com.dio.personapi.dto.response.MessageResponseDTO;
 import com.dio.personapi.service.PersonService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
-@AllArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @RestController
 @RequestMapping("/person")
 public class PersonController {

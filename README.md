@@ -1,4 +1,6 @@
-<h1 align="center">Sistema de gerenciamento de pessoas em API REST com Spring Boot</h1>
+<p align="center">
+  <img src="./public/logo.png" />
+</p>
 
 <p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

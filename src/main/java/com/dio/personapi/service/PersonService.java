@@ -7,13 +7,14 @@ import com.dio.personapi.exception.PersonNotFoundException;
 import com.dio.personapi.mapper.PersonMapper;
 import com.dio.personapi.repository.PersonRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@AllArgsConstructor
+@AllArgsConstructor(onConstructor = @__(@Autowired))
 @Service
 public class PersonService {
 
