@@ -21,7 +21,7 @@ Este projeto foi desenvolvido usando as seguintes tecnologias:
 - [Java](https://www.oracle.com/br/java/technologies/javase-jdk11-downloads.html)
 
 ## Build
-Você vai precisar da [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) ou superior instalada em seu computador para poder compilar.
+Você vai precisar do [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) e do [Maven](https://maven.apache.org/download.cgi) instalados em seu computador para poder compilar e rodar.
 
 ```bash
 git clone https://github.com/eric-souzams/person-api.git
